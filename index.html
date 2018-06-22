@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #stalker {
+    position: fixed;
+    transition: left 1.5s ease-in-out 0s, top 1.5s ease-in-out 0s; /*1.5s は移動時間*/
+    -webkit-transition: left 1.5s ease-in-out 0s, top 1.5s ease-in-out 0s; /*webkit 系のクロスブラウザ*/
+    z-index: 9999;
+}
+    </style>
+</head>
+<body>
+    <script>
+    (function() {
+    var doc = document;
+    var body = doc.body;
+    var stalker = doc.createElement("div");
+    stalker.id = "stalker";
+    stalker.innerHTML = '<img src="https://rr.img.naver.jp/mig?src=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F456363772051861504%2Ft-RGHQ2Y.jpeg&twidth=1200&theight=1200&qlt=80&res_format=jpg&op=r" alt="マウスストーカー" width="70" height="70">'; //表示させる要素 画像であれば img 要素を入れる
+    body.appendChild(stalker);
+
+    body.addEventListener("mousemove", function(e) {
+          stalker.style.left = e.clientX - 35 + "px"; //35 は要素の長さの半分
+          stalker.style.top = e.clientY - 80 + "px"; //80 は縦の位置 各自調整
+    }, false);
+
+})()
+    </script>
+</body>
+</html>
